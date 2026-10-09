@@ -1,20 +1,16 @@
-import { Button } from "@/components/ui/button";
+import { MemoApp } from "@/components/memo-app";
 
 export default function Home() {
   return (
-    <main className="mx-auto flex min-h-dvh max-w-2xl flex-col justify-center gap-4 px-6 py-16">
-      <p className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
-        Ready to build
-      </p>
-      <h1 className="text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
-        Describe this application in the task goal.
-      </h1>
-      <p className="text-lg text-muted-foreground">
-        The coding agent will replace this reviewed starter with the requested product.
-      </p>
-      <div className="mt-2 flex gap-2">
-        <Button>Web app foundation ready</Button>
-      </div>
+    <main className="mx-auto flex min-h-dvh w-full max-w-2xl flex-col gap-8 px-4 py-10 sm:px-6 sm:py-14">
+      <header className="flex flex-col gap-1">
+        <h1 className="text-3xl font-semibold tracking-tight text-balance sm:text-4xl">Voice memos</h1>
+        <p className="text-muted-foreground">
+          Record from your microphone, name each memo, and play it back. Everything stays in this
+          browser.
+        </p>
+      </header>
+      <MemoApp />
     </main>
   );
 }

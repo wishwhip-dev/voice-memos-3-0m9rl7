@@ -3,8 +3,9 @@ import "./globals.css";
 import { Providers } from "./providers";
 
 export const metadata: Metadata = {
-  title: "New application",
-  description: "Created by the Assistant developer",
+  title: "Voice Memos",
+  description:
+    "Record voice memos from your microphone, name them, and play them back. Everything is stored in your browser.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
