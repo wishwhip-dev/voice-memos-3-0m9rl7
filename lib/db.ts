@@ -34,9 +34,11 @@ export const database = defineDatabase<{ memos: Memo }>({
   // what you want on a first build, and never what you want afterwards.
   name: "voice-memos",
   versions: [
-    // Only the primary key and the properties queried on. `name`, `durationMs` and the audio are
-    // stored but never filtered or sorted by, so indexing them would cost writes and buy nothing.
+    // Version 1 indexed only the primary key and `recordedAt`. It was shipped, so it is not edited
+    // (docs/storage.md): version 2 adds the `number` index that `nextMemoNumber()` sorts on. Dexie
+    // creates the index on open; no data changes.
     { version: 1, stores: { memos: "id, recordedAt" } },
+    { version: 2, stores: { memos: "id, recordedAt, number" } },
   ],
   // No seed: a voice memo app opens empty on purpose — the empty state invites the first recording,
   // and there is no honest example content to fake (a seeded memo would have no audio behind it).
